@@ -4,9 +4,9 @@ from .models import *
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['user_name', 'email','user_phone','user_addr']
-        labels = {'user_name':'이름', 'email':'이메일','user_phone':'연락처','addr':'주소'}
-        exclude = ['profile_img']
+        fields = '__all__'
+        labels = {'user_name':'이름', 'email':'이메일','user_phone':'연락처','user_addr':'주소', 'profile_img':'프사'}
+        # exclude = []
 
 
 class PetForm(forms.ModelForm):

@@ -35,7 +35,7 @@
         </div>
 
         <!-- <input type="submit" value ="저장" class='btn btn-primary'> -->
-
+<h5> comment : Enter 치면 모달 없이 바로 저장되는 문제 </h5>
         <!-- Save Modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saveModal">
     Save
@@ -64,6 +64,37 @@
 
     </form>
 </div>
-<div class="container">
+
+{% comment %} <div class="container">
     <h5 class="my-3 border-bottom pb-2">PET 정보</h5>
-</div>
+
+    <div class="form-group">
+      <label for="pet_name">펫이름</label>
+          <input type="text" class="form-control" name="pet_name" id="pet_name"
+          value="{{ form_pet.pet_name.value | default_if_none:'' }}">
+    </div>
+  
+    <div class="form-group">
+      <label for="gender">성별</label>
+          <input type="text" class="form-control" name="gender" id="gender"
+          value="{{ form_pet.gender.value | default_if_none:'' }}">
+    </div>
+
+    <div class="form-group">
+      <label for="age">나이</label>
+          <input type="text" class="form-control" name="age" id="age"
+          value="{{ form_pet.age.value | default_if_none:'' }}">
+    </div>
+
+    <div class="form-group">
+      <label for="size">분류</label>
+          <input type="text" class="form-control" name="size" id="size"
+          value="{{ form_pet.size.value | default_if_none:'' }}">
+    </div>
+
+    <div class="form-group">
+      <label for="neutered">중성화</label>
+          <input type="text" class="form-control" name="neutered" id="neutered"
+          value="{{ form_pet.neutered.value | default_if_none:'' }}">
+    </div>
+</div> {% endcomment %}
