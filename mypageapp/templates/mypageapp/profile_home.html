@@ -6,15 +6,14 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <div class="container">
     <h5 class="my-3 border-bottom pb-2">회원 정보</h5>
-                             <!-- action = "URL" 이거만 만지면 작동은 될듯 -->
-    <form method ="post" action = "main"
-        class="post-form my-3"> 
+                             <!-- action = "URL" mypage:home -->
+    <form method ="post" class="post-form my-3"> 
         {% csrf_token %}
 
         <div class="form-group">
-            <label for="name">이름</label>
-                <input type="text" class="form-control" name="name" id="name"
-                value="{{ form.name.value | default_if_none:'' }}">
+            <label for="user_name">이름</label>
+                <input type="text" class="form-control" name="user_name" id="user_name"
+                value="{{ form.user_name.value | default_if_none:'' }}">
         </div>
         
         <div class="form-group">
@@ -24,15 +23,15 @@
         </div>
 
         <div class="form-group">
-            <label for="phone">연락처</label>
-                <input type="text" class="form-control" name="phone" id="phone"
-                value="{{ form.phone.value | default_if_none:'' }}">
+            <label for="user_phone">연락처</label>
+                <input type="text" class="form-control" name="user_phone" id="user_phone"
+                value="{{ form.user_phone.value | default_if_none:'' }}">
         </div>
 
         <div class="form-group">
-            <label for="address">주소</label>
-                <input type="text" class="form-control" name="address" id="address"
-                value="{{ form.address.value | default_if_none:'' }}">
+            <label for="user_addr">주소</label>
+                <input type="text" class="form-control" name="user_addr" id="user_addr"
+                value="{{ form.user_addr.value | default_if_none:'' }}">
         </div>
 
         <!-- <input type="submit" value ="저장" class='btn btn-primary'> -->

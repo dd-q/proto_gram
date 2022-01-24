@@ -10,9 +10,11 @@ def home(request, id):
         if form.is_valid():
             profile = form.save(commit = False)
             profile.save()
-            return redirect('home', id = profile.id)
+            # return redirect('home', id = profile.id)
+            return redirect('/'+str(profile.id)+'/', id = profile.id)
     else:
         form = UserForm(instance=profile)
         return render(request, 'mypageapp/profile_home.html',
             {'form':form }
         )
+        # redirect('/'+str(profile.id)+'/', id = profile.id)
