@@ -15,11 +15,11 @@ class User(models.Model):
 
 
 class Pet(models.Model):
-    pet_name = CharField(max_length=50)
-    gender = CharField(max_length=1)
-    age = DateField()
-    size = CharField(max_length=1)
-    neutered = CharField(max_length=1)
+    pet_name = CharField(max_length=50, null=True, blank=True)
+    gender = CharField(max_length=1, null=True, blank=True)
+    age = DateField(null=True, blank=True)
+    size = CharField(max_length=1, null=True, blank=True)
+    neutered = CharField(max_length=1, null=True, blank=True)
     pet_img = ImageField()
     # user = models.ForeignKey(User, unique=True, db_column='user_id', on_delete = models.SET_NULL)
     user = models.OneToOneField(User,on_delete=models.CASCADE, null = True, blank = True)
