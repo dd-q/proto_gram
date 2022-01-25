@@ -33,12 +33,37 @@ def home_pet(request):
         if form.is_valid():
             pet_profile = form.save(commit=False)
             pet_profile.save()
-            return redirect('mypageapp:home_pet')
+            return redirect('mypageapp:pet_list')
         else:
             return redirect('mypageapp:home')
     else:
         form = PetForm()
         return render(request, 'mypageapp/pet_profile.html', {'form':form})
+    
+    # 임시
+def pet_list(request):
+    pets = Pet.objects.all()
+    return render(request, 'mypageapp/pet_list.html', {'pets':pets})
+
+#  def show(request, id):
+    pet = get_object_or_404(Pet, pk=id)
+    return render(request, 'mypageapp/show.html', {'pet':pet})
+
+def edit(request):
+    return render(request,'edit.html')
+
+def pet_profile_update(request, id):
+    pet = get_object_or_404(Pet, pk = id)
+    if request.method == 'POST':
+        form = PetForm(request.POST, instance = pet)
+        if form.is_valid:
+            pet = form.save(commit = False)
+            pet.save()
+            return redirect('mypageapp:pet_list') #, id = pet.pk)
+    else:
+        form = PetForm(instance=pet)
+        return render(request, 'mypageapp/pet_profile.html', {'form':form})
+
 
 
 

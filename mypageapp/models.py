@@ -1,3 +1,4 @@
+from operator import truediv
 from django.db import models
 from django.db.models.fields import *
 from django.forms import ImageField
@@ -20,7 +21,7 @@ class Pet(models.Model):
     size = CharField(max_length=1)
     neutered = CharField(max_length=1)
     pet_img = ImageField()
-    user_id = models.ForeignKey(User, unique=True, db_column='user_id', on_delete = models.SET_NULL, null=True)
-
+    # user = models.ForeignKey(User, unique=True, db_column='user_id', on_delete = models.SET_NULL)
+    user = models.OneToOneField(User,on_delete=models.CASCADE, null = True, blank = True)
     def __str__(self):
         return self.pet_name

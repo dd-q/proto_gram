@@ -1,0 +1,6 @@
+<h1> 펫 이름 : {{ pet.pet_name }}</h1>
+{{ pet.age }}<br/>
+{{ pet.gender|linebreaks }}
+<a href = "{% url 'mypageapp:pet_profile_update' pet.id %}">수정</a><br/>
+<a href="{% url 'mypageapp:pet_list' %}"> 목록으로 이동 </a><br/>
+{% comment %} <a href="{% url 'postupdate' post.id %}"> 수정 </a> {% endcomment %}

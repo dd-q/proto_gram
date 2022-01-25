@@ -24,11 +24,11 @@
   
     <div class="form-group">
         <label for="size">분류</label>
-        <select name="content">
+        <select name="size">
             <option value="">  -선택- </option>
             <option value="S"> 소형견 </option>
-            <option value="M"> 중형견 </option>
-            <option value="L"> 대형견 </option>
+            <option value ="M"> 중형견 </option>
+            <option value ="L"> 대형견 </option>
         </select>
     </div>
   
@@ -40,4 +40,5 @@
             <label for="neutered">No</label><br>
     </div>
 
-<input type="submit" value="enroll">
+<input type="submit" value="enroll"><br/>
+<a href="{% url 'mypageapp:pet_list' %}"> 목록으로 이동 </a><br/>

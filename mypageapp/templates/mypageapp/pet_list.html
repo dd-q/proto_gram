@@ -1,0 +1,8 @@
+<h1> Pet List </h1>
+
+<h3><a href = "{% url 'mypageapp:home_pet' %}">
+    <button type="submit">펫 등록</button></a></h3>
+{% for pet in pets %}
+    <a href = "{% url 'mypageapp:pet_profile_update' pet.id %}">{{ pet.pet_name }}</a>
+    <br/>
+{% endfor %}
