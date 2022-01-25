@@ -16,11 +16,11 @@ class User(models.Model):
 class Pet(models.Model):
     pet_name = CharField(max_length=50)
     gender = CharField(max_length=1)
-    age = IntegerField()
+    age = DateField()
     size = CharField(max_length=1)
     neutered = CharField(max_length=1)
     pet_img = ImageField()
-    user_id = models.ForeignKey(User, db_column='user_id', on_delete = models.SET_NULL, null=True)
+    user_id = models.ForeignKey(User, unique=True, db_column='user_id', on_delete = models.SET_NULL, null=True)
 
     def __str__(self):
         return self.pet_name
